@@ -11,16 +11,27 @@ class Neuron:
         return 0 if sum + self.bias <= 0 else 1
 
 
+class NAND(Neuron):
+    def __init__(self):
+        super().__init__([-2, -2], 3)
+
 
 def main():
 
-    w = [-2, -2]
-    n = Neuron(w, 3) #NAND
+    x1 = int(input())
+    x2 = int(input())
 
-    print(n.out([0, 0]))
-    print(n.out([0, 1]))
-    print(n.out([1, 0]))
-    print(n.out([1, 1]))
+    nand1 = NAND()
+    nand2 = NAND()
+    nand3 = NAND()
+    nand4 = NAND()
+
+    print("sum " + str(
+    nand4.out(
+        [nand3.out([x2, nand1.out([x1, x2])]),
+        nand2.out([x1, nand1.out([x1, x2])])]
+    )))
+    # circuit which adds two bits x1 and x2
 
 
 if __name__ == "__main__":
